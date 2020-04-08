@@ -1,3 +1,4 @@
+import 'package:app_one_ui/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
@@ -81,11 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(90))),
-                      child: Icon(
-                        Ionicons.ios_mail,
-                        size: 40,
-                        color: Colors.black
-                      ),
+                      child: Icon(Ionicons.ios_mail,
+                          size: 40, color: Colors.black),
                     ),
                     SizedBox(height: 5),
                     Text(
@@ -104,7 +102,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: Colors.white,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(90))),
-                        child: Icon(Icons.system_update, size: 35, color: Colors.black,)),
+                        child: Icon(
+                          Icons.system_update,
+                          size: 35,
+                          color: Colors.black,
+                        )),
                     SizedBox(height: 5),
                     Text(
                       "Top-up",
@@ -113,18 +115,47 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ]),
-              SizedBox(height: 360),
+              SizedBox(height: 350),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Sign Up", style: TextStyle(color: Colors.grey, fontSize: 25),),
-                  SizedBox(height: 15),
-                  Text("Open an Account", style: TextStyle(color: Colors.grey, fontSize: 20),),
+                  Container(
+                    height: 30,
+                    child: FlatButton(
+                        onPressed: () {},
+                        child: Text("Sign Up",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ))),
+                  ),
+                  // SizedBox(height: 5),
+                  FlatButton(
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            FontAwesome5Solid.coins,
+                            color: Colors.red,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Open an Account",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      )),
                 ],
               ),
             ],
           ),
-           
           Positioned(
             top: 275,
             left: 35,
@@ -132,180 +163,192 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 330,
               width: 300,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 5,
-                  spreadRadius: 0.1
-                )
-                ]
-              ),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey, blurRadius: 5, spreadRadius: 0.1)
+                  ]),
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          height: 10,
-                          width: 20,
-                          child: Image(image: AssetImage('assets/flag.png'))
-                        ),
-                        SizedBox(width: 2),
-                        DropdownButton<String>(
-                          value: dropdownValue,
-                          icon: Icon(Icons.arrow_drop_down),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(
-                            color: Colors.black
-                          ),
-                          onChanged: (String newValue) {
-                            setState(() {
-                              dropdownValue = newValue;
-                            });
-                          },
-                          items: <String>['Nigeria', 'Ghana', 'Cameroon', 'Chad']
-                            .map<DropdownMenuItem<String>>((String value) {
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              height: 10,
+                              width: 20,
+                              child:
+                                  Image(image: AssetImage('assets/flag.png'))),
+                          SizedBox(width: 2),
+                          DropdownButton<String>(
+                            value: dropdownValue,
+                            icon: Icon(Icons.arrow_drop_down),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: Colors.black),
+                            onChanged: (String newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                              });
+                            },
+                            items: <String>[
+                              'Nigeria',
+                              'Ghana',
+                              'Cameroon',
+                              'Chad'
+                            ].map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
-                              );}).toList(),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: 40,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(45),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 5,
-                          spreadRadius: 0.1
-                        )
-                      ]
-                    ),
-                    child: TextField(
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        prefix: SizedBox(width: 10),
-                        border: InputBorder.none,
-                        hintText: 'Phone Number',
-                        hintStyle: TextStyle(
-                          color: Colors.grey.withOpacity(0.5),
-                          fontWeight: FontWeight.w600
-                        ),
-                      ), 
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    height: 40,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(45),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 5,
-                          spreadRadius: 0.1
-                        )
-                      ]
-                    ),
-                    child: TextField(
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        prefix: SizedBox(width: 10),
-                        border: InputBorder.none,
-                        hintText: 'Password',
-                        hintStyle: TextStyle(
-                          color: Colors.grey.withOpacity(0.5),
-                          fontWeight: FontWeight.w600
-                        ),
-                        suffixIcon: Icon(Icons.visibility, color: Colors.grey)
-                      ), 
-                    ),
-                  ),
-                  Padding(
-                    padding:  EdgeInsets.only(top: 15, left: 90),
-                    child: Text("Forgot your Password?",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w600
-                    ),),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 40,
-                    width: 230,
-                    decoration: BoxDecoration(
-                      // color: Colors.red.shade900,
-                      borderRadius: BorderRadius.circular(45),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 5,
-                          spreadRadius: 0.1
-                        )
-                      ],
-                      gradient: LinearGradient(
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft,
-                        colors: [Colors.red.shade900, Colors.red[200]], // whitish to gray
-                        tileMode: TileMode.repeated, // repeats the gradient over the canvas
+                              );
+                            }).toList(),
+                          ),
+                        ],
                       ),
                     ),
-                    child: Text('Login', 
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
-                    )),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text("or login with",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500
-                    ),),
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
+                    SizedBox(height: 10),
+                    Container(
+                      height: 40,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(45),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 5,
+                                spreadRadius: 0.1)
+                          ]),
+                      child: TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          prefix: SizedBox(width: 10),
+                          border: InputBorder.none,
+                          hintText: 'Phone Number',
+                          hintStyle: TextStyle(
+                              color: Colors.grey.withOpacity(0.5),
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Container(
+                      height: 40,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(45),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 5,
+                                spreadRadius: 0.1)
+                          ]),
+                      child: TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                            prefix: SizedBox(width: 10),
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                            hintStyle: TextStyle(
+                                color: Colors.grey.withOpacity(0.5),
+                                fontWeight: FontWeight.w600),
+                            suffixIcon:
+                                Icon(Icons.visibility, color: Colors.grey)),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(
+                        top: 5,
+                        left: 90,
+                      ),
+                      height: 30,
+                      width: 280,
+                      child: FlatButton(
+                        child: Text(
+                          "Forgot your Password?",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    FlatButton(
+                      child: Container(
+                        alignment: Alignment.center,
                         height: 40,
-                        width: 40,
-                        child: Image(image: AssetImage('assets/facial_recognition-512.png'))
+                        width: 230,
+                        decoration: BoxDecoration(
+                          // color: Colors.red.shade900,
+                          borderRadius: BorderRadius.circular(45),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 5,
+                                spreadRadius: 0.1)
+                          ],
+                          gradient: LinearGradient(
+                            begin: Alignment.centerRight,
+                            end: Alignment.centerLeft,
+                            colors: [
+                              Colors.red.shade900,
+                              Colors.red[200]
+                            ], // whitish to gray
+                            tileMode: TileMode
+                                .repeated, // repeats the gradient over the canvas
+                          ),
+                        ),
+                        child: Text('Login',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 20)),
+                      ),  onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Homepage()),
+                          );
+                      }
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text(
+                        "or login with",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(width: 30),
-                      Container(
-                        height: 40,
-                        width: 40,
-                        child: Image(image: AssetImage('assets/fingerprint_scan.png'))
-                      ),
-                    ],
-                  )
-                ]
-              ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                            height: 40,
+                            width: 40,
+                            child: Image(
+                                image: AssetImage(
+                                    'assets/facial_recognition-512.png'))),
+                        SizedBox(width: 30),
+                        Container(
+                            height: 40,
+                            width: 40,
+                            child: Image(
+                                image:
+                                    AssetImage('assets/fingerprint_scan.png'))),
+                      ],
+                    )
+                  ]),
             ),
           ),
-        ]
-      )
-    );
+        ]));
   }
 }
